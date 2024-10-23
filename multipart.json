@@ -1,0 +1,19 @@
+{
+   "fields": {
+      "project": {
+         "key": "BKD1"
+      },
+      "summary": "Test Execution for cucumber Execution from Github",
+      "issuetype": {
+         "name" : "Test Execution"
+      },
+      "fixVersions" : [
+           {
+           "name" :  "1.0"
+            }
+       ]
+   },
+     "xrayFields": {
+           "testPlanKey": "BKD1-1796"
+       }
+}

@@ -1,7 +1,7 @@
 {
    "fields": {
       "project": {
-         "key": "BKD1"
+         "key": "XEC"
       },
       "summary": "Test Execution for cucumber Execution from Github",
       "issuetype": {
@@ -14,6 +14,6 @@
        ]
    },
      "xrayFields": {
-           "testPlanKey": "BKD1-1796"
+           "testPlanKey": "XEC-56"
        }
 }

@@ -5,25 +5,25 @@ Tests run: 18, Failures: 5, Errors: 0, Skipped: 0, Time elapsed: 0.582 s <<< FAI
 Examples.Example #1.3 -- Time elapsed: 0.013 s <<< FAILURE!
 java.lang.AssertionError: When travelling with children, custormer will not be able to pay with crypto
 	at airline.StepDefinitions.choosesToPayWithPaymentMethodAndClicksBuy(StepDefinitions.java:47)
-	at ✽.Chooses to pay with "Crypto" and clicks Buy(classpath:airline/1_BKD1-1952.feature:46)
+	at ✽.Chooses to pay with "Crypto" and clicks Buy(classpath:airline/1_XEC-101.feature:46)
 
 Examples.Example #1.6 -- Time elapsed: 0.013 s <<< FAILURE!
 java.lang.AssertionError: When travelling with children, custormer will not be able to pay with crypto
 	at airline.StepDefinitions.choosesToPayWithPaymentMethodAndClicksBuy(StepDefinitions.java:47)
-	at ✽.Chooses to pay with "Crypto" and clicks Buy(classpath:airline/1_BKD1-1952.feature:46)
+	at ✽.Chooses to pay with "Crypto" and clicks Buy(classpath:airline/1_XEC-101.feature:46)
 
 Examples.Example #1.12 -- Time elapsed: 0 s <<< FAILURE!
 java.lang.AssertionError: When travelling with children, custormer will not be able to pay with crypto
 	at airline.StepDefinitions.choosesToPayWithPaymentMethodAndClicksBuy(StepDefinitions.java:47)
-	at ✽.Chooses to pay with "Crypto" and clicks Buy(classpath:airline/1_BKD1-1952.feature:46)
+	at ✽.Chooses to pay with "Crypto" and clicks Buy(classpath:airline/1_XEC-101.feature:46)
 
 Examples.Example #1.14 -- Time elapsed: 0.002 s <<< FAILURE!
 java.lang.AssertionError: When travelling with children, custormer will not be able to pay with crypto
 	at airline.StepDefinitions.choosesToPayWithPaymentMethodAndClicksBuy(StepDefinitions.java:47)
-	at ✽.Chooses to pay with "Crypto" and clicks Buy(classpath:airline/1_BKD1-1952.feature:46)
+	at ✽.Chooses to pay with "Crypto" and clicks Buy(classpath:airline/1_XEC-101.feature:46)
 
 Examples.Example #1.17 -- Time elapsed: 0 s <<< FAILURE!
 java.lang.AssertionError: When travelling with children, custormer will not be able to pay with crypto
 	at airline.StepDefinitions.choosesToPayWithPaymentMethodAndClicksBuy(StepDefinitions.java:47)
-	at ✽.Chooses to pay with "Crypto" and clicks Buy(classpath:airline/1_BKD1-1952.feature:46)
+	at ✽.Chooses to pay with "Crypto" and clicks Buy(classpath:airline/1_XEC-101.feature:46)
 

@@ -87,8 +87,8 @@
                 <groupId>app.getxray</groupId>
                 <artifactId>xray-maven-plugin</artifactId>
                 <configuration>
-                    <clientId>C416DC02B6B242DFAD16905B7C69DECF</clientId>
-                    <clientSecret>478db948b2fc419a1621aed007d23fe97a7a18f6661998cab2dea50fe96d169d</clientSecret>
+                    <clientId>98B3820C7E08457F9E8F1B483FD4AD19</clientId>
+                    <clientSecret>eba9db8c194d246eb427dfb265a5875d965484c053cfd1e62425674d2e2ba087</clientSecret>
                     <cloud>true</cloud>
                     <reportFormat>cucumber</reportFormat>
                     <reportFile>target/cucumber-report.json</reportFile>

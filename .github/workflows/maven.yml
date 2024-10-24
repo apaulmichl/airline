@@ -24,7 +24,6 @@ jobs:
           rm src/test/resources/airline/*
       - name: Create resources directory for feature files
         run: |
-          mkdir src/test/resources
           mkdir src/test/resources/airline
       - name: About to get feature file from Xray
         continue-on-error: true
@@ -34,7 +33,7 @@ jobs:
           curl -H "Content-Type: application/json" -X GET -H "Authorization: Bearer $token" -o "src/test/resources/airline/features.zip" "https://xray.cloud.getxray.app/api/v1/export/cucumber?keys=XEC-101"
           echo "Unzipping feature.zip file"
           cd src/test/resources/airline
-          unzip -xf features.zip
+          tar -xf features.zip
           dir -r
           cd ../../../..
  
@@ -45,7 +44,7 @@ jobs:
       - name: Copy multipart BDD file to target
         continue-on-error: false
         run: |
-          cp multipart.json .\target\
+          cp multipart.json ./target
       - name: About to push the test execution results to Xray
       # curl.exe -H "Content-Type: application/json" -X POST -H $authString --data "@target\cucumber-report.json" https://xray.cloud.getxray.app/api/v1/import/execution/cucumber
         run: |

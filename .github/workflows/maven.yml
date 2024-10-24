@@ -30,7 +30,7 @@ jobs:
         continue-on-error: true
         run: |
           mvn clean
-          $postData = '{ /"client_id/" : /"' + ${{secrets.cloudClientId}} + '/" , /"client_secret/" : /"' + ${{secrets.cloudClientSecret}} + '/" }'
+          $postData = '{ \"client_id\" : \"' + ${{secrets.cloudClientId}} + '\" , \"client_secret\" : \"' + ${{secrets.cloudClientSecret}} + '\" }'
           echo $postData
           $token = curl.exe -H "Content-Type: application/json" -X POST --data $postData https://xray.cloud.getxray.app/api/v1/authenticate
           $authString = "Authorization: Bearer " + $token

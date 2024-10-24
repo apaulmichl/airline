@@ -24,6 +24,7 @@ jobs:
           rm src/test/resources/airline/*
       - name: Create resources directory for feature files
         run: |
+          mkdir src/test/resources/
           mkdir src/test/resources/airline
       - name: About to get feature file from Xray
         continue-on-error: true

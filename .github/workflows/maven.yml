@@ -50,7 +50,7 @@ jobs:
       - name: Copy multipart BDD file to target
         continue-on-error: false
         run: |
-          cp ./multipart.json ./target/
+          cp .\multipart.json .\target\
       - name: About to push the test execution results to Xray
       # curl.exe -H "Content-Type: application/json" -X POST -H $authString --data "@target\cucumber-report.json" https://xray.cloud.getxray.app/api/v1/import/execution/cucumber
         run: |

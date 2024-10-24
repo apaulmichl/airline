@@ -34,7 +34,7 @@ jobs:
           curl -H "Content-Type: application/json" -X GET -H "Authorization: Bearer $token" -o "src/test/resources/airline/features.zip" "https://xray.cloud.getxray.app/api/v1/export/cucumber?keys=XEC-101"
           echo "Unzipping feature.zip file"
           cd src/test/resources/airline
-          tar -xf features.zip
+          unzip features.zip
           dir -r
           cd ../../../..
  

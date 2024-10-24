@@ -25,7 +25,7 @@ jobs:
       - name: Create resources directory for feature files
         run: |
           mkdir src/test/resources
-          mkdir src/test/resources\airline
+          mkdir src/test/resources/airline
       - name: About to get feature file from Xray
         continue-on-error: true
         run: |
@@ -33,9 +33,9 @@ jobs:
           echo $postData
           $token = curl.exe -H "Content-Type: application/json" -X POST --data $postData https://xray.cloud.getxray.app/api/v1/authenticate
           $authString = "Authorization: Bearer " + $token
-          curl.exe -H "Content-Type: application/json" -X GET -H $authString -o "src\test\resources\airline\features.zip" https://xray.cloud.getxray.app/api/v1/export/cucumber?keys=XEC-101    
+          curl.exe -H "Content-Type: application/json" -X GET -H $authString -o "src/test/resources/airline/features.zip" https://xray.cloud.getxray.app/api/v1/export/cucumber?keys=XEC-101    
           echo "Unzipping feature.zip file"
-          cd src\test\resources\airline
+          cd src/test/resources/airline
           tar -xf features.zip
           dir -r
           cd ..\..\..\..

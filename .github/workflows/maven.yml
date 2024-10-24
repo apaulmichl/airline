@@ -29,7 +29,7 @@ jobs:
       - name: About to get feature file from Xray
         continue-on-error: true
         run: |
-          mvn clean
+        # mvn clean
           $ClientId = "${{secrets.cloudClientId}}"
           $ClientSecret = "${{secrets.cloudClientSecret}}"
           $postData = '{ \"client_id\" : \"' + $ClientId + '\" , \"client_secret\" : \"' + $ClientSecret + '\" }'
@@ -42,8 +42,7 @@ jobs:
           tar -xf features.zip
           dir -r
           cd ..\..\..\..
- 
-      - name: About to run the BDD tests
+       - name: About to run the BDD tests
         continue-on-error: true
         run: |
           mvn compile test

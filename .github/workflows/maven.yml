@@ -29,10 +29,7 @@ jobs:
       - name: About to get feature file from Xray
         continue-on-error: true
         run: |
-          $ClientId = "${{secrets.cloudClientId}}"
-          $ClientSecret = "${{secrets.cloudClientSecret}}"
-          echo $ClientId
-          $postData = '{ \"client_id\" : \"' + $ClientId + '\" , \"client_secret\" : \"' + $ClientSecret + '\" }'
+          $postData = '{ \"client_id\" : \"' + ${{secrets.cloudClientId}} + '\" , \"client_secret\" : \"' + ${{secrets.cloudClientSecret}} + '\" }'
           echo $postData
           $token = curl.exe -H "Content-Type: application/json" -X POST --data $postData https://xray.cloud.getxray.app/api/v1/authenticate
           $authString = "Authorization: Bearer " + $token

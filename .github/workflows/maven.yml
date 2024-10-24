@@ -36,7 +36,7 @@ jobs:
           cd src/test/resources/airline
           tar -xf features.zip
           dir -r
-          cd ../../../..
+          cd ..\..\..\..
  
       - name: About to run the BDD tests
         continue-on-error: true

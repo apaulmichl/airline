@@ -36,7 +36,7 @@ jobs:
           echo $postData
           $token = curl.exe -H "Content-Type: application/json" -X POST --data $postData https://xray.cloud.getxray.app/api/v1/authenticate
           $authString = "Authorization: Bearer " + $token
-          curl.exe -H "Content-Type: application/json" -X GET -H $authString -o "src\test\resources\airline\features.zip" https://xray.cloud.getxray.app/api/v1/export/cucumber?keys=BKD1-2006    
+          curl.exe -H "Content-Type: application/json" -X GET -H $authString -o "src\test\resources\airline\features.zip" https://xray.cloud.getxray.app/api/v1/export/cucumber?keys=XEC-101    
           echo "Unzipping feature.zip file"
           cd src\test\resources\airline
           tar -xf features.zip

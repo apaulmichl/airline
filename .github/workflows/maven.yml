@@ -50,7 +50,7 @@ jobs:
       - name: Copy multipart BDD file to target
         continue-on-error: false
         run: |
-          cp .\multipart.json .\target\
+          cp ./multipart.json ./target/
       - name: About to push the test execution results to Xray
       # curl.exe -H "Content-Type: application/json" -X POST -H $authString --data "@target\cucumber-report.json" https://xray.cloud.getxray.app/api/v1/import/execution/cucumber
         run: |
@@ -60,5 +60,5 @@ jobs:
           echo $postData
           $token = curl.exe -H "Content-Type: application/json" -X POST --data $postData https://xray.cloud.getxray.app/api/v1/authenticate
           $authString = "Authorization: Bearer " + $token
-          curl.exe -H "Content-Type: multipart/form-data" -X POST -F "info=@.\multipart.json" -F "results=@target\cucumber-report.json" -H $authString  https://xray.cloud.getxray.app/api/v1/import/execution/cucumber/multipart
+          curl.exe -H "Content-Type: multipart/form-data" -X POST -F "info=@./multipart.json" -F "results=@target/cucumber-report.json" -H $authString  https://xray.cloud.getxray.app/api/v1/import/execution/cucumber/multipart
       - run: echo "This job's status is ${{ job.status }}."

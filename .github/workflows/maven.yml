@@ -14,7 +14,7 @@ on:
   workflow_dispatch:
 jobs:
   Explore-GitHub-Actions:
-    runs-on: Biscaia
+    runs-on: ubuntu-latest
     steps:
       - name: Starting the workflow steps
         uses: actions/checkout@v3

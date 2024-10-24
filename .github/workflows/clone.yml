@@ -1,0 +1,60 @@
+name: Xray GitHub Airline Trigger
+ 
+run-name: ${{ github.actor }} is testing out GitHub Actions
+ 
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "master" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+ 
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Starting the workflow steps
+        uses: actions/checkout@v3
+      - name: Cleaning up feature file directory
+        continue-on-error: true
+        run: |
+          rm src\test\resources\airline\*
+      - name: Create resources directory for feature files
+        run: |
+          mkdir src\test\resources
+          mkdir src\test\resources\airline
+      - name: About to get feature file from Xray
+        continue-on-error: true
+        run: |
+          $postData = '{ \"client_id\" : \"' + ${{secrets.cloudClientId}} + '\" , \"client_secret\" : \"' + ${{secrets.cloudClientSecret}} + '\" }'
+          echo $postData
+          $token = curl.exe -H "Content-Type: application/json" -X POST --data $postData https://xray.cloud.getxray.app/api/v1/authenticate
+          $authString = "Authorization: Bearer " + $token
+          curl.exe -H "Content-Type: application/json" -X GET -H $authString -o "src\test\resources\airline\features.zip" https://xray.cloud.getxray.app/api/v1/export/cucumber?keys=XEC-101    
+          echo "Unzipping feature.zip file"
+          cd src\test\resources\airline
+          tar -xf features.zip
+          dir -r
+          cd ..\..\..\..
+      - name: About to run the BDD tests
+        continue-on-error: true
+        run: |
+          mvn compile test
+      - name: Copy multipart BDD file to target
+        continue-on-error: false
+        run: |
+          cp multipart.json ./target/
+      - name: About to push the test execution results to Xray
+      # curl.exe -H "Content-Type: application/json" -X POST -H $authString --data "@target\cucumber-report.json" https://xray.cloud.getxray.app/api/v1/import/execution/cucumber
+        run: |
+          $ClientId = "${{secrets.cloudClientId}}"
+          $ClientSecret = "${{secrets.cloudClientSecret}}"
+          $postData = '{ \"client_id\" : \"' + $ClientId + '\" , \"client_secret\" : \"' + $ClientSecret + '\" }'
+          echo $postData
+          $token = curl.exe -H "Content-Type: application/json" -X POST --data $postData https://xray.cloud.getxray.app/api/v1/authenticate
+          $authString = "Authorization: Bearer " + $token
+          curl.exe -H "Content-Type: multipart/form-data" -X POST -F "info=@.\multipart.json" -F "results=@target\cucumber-report.json" -H $authString  https://xray.cloud.getxray.app/api/v1/import/execution/cucumber/multipart
+      - run: echo "This job's status is ${{ job.status }}."

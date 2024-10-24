@@ -31,6 +31,7 @@ jobs:
         run: |
           $ClientId = "${{secrets.cloudClientId}}"
           $ClientSecret = "${{secrets.cloudClientSecret}}"
+          echo $ClientId
           $postData = '{ \"client_id\" : \"' + $ClientId + '\" , \"client_secret\" : \"' + $ClientSecret + '\" }'
           echo $postData
           $token = curl.exe -H "Content-Type: application/json" -X POST --data $postData https://xray.cloud.getxray.app/api/v1/authenticate

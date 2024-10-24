@@ -29,7 +29,8 @@ jobs:
       - name: About to get feature file from Xray
         continue-on-error: true
         run: |
-          $postData = '{ \"client_id\" : \"' + ${{secrets.cloudClientId}} + '\" , \"client_secret\" : \"' + ${{secrets.cloudClientSecret}} + '\" }'
+          mvn clean
+          $postData = '{ /"client_id/" : /"' + ${{secrets.cloudClientId}} + '/" , /"client_secret/" : /"' + ${{secrets.cloudClientSecret}} + '/" }'
           echo $postData
           $token = curl.exe -H "Content-Type: application/json" -X POST --data $postData https://xray.cloud.getxray.app/api/v1/authenticate
           $authString = "Authorization: Bearer " + $token
@@ -38,7 +39,7 @@ jobs:
           cd src\test\resources\airline
           tar -xf features.zip
           dir -r
-          cd ..\..\..\..
+          cd ../../../..
       - name: About to run the BDD tests
         continue-on-error: true
         run: |
@@ -52,7 +53,7 @@ jobs:
         run: |
           $ClientId = "${{secrets.cloudClientId}}"
           $ClientSecret = "${{secrets.cloudClientSecret}}"
-          $postData = '{ \"client_id\" : \"' + $ClientId + '\" , \"client_secret\" : \"' + $ClientSecret + '\" }'
+          $postData = '{ /"client_id/" : /"' + ${{secrets.cloudClientId}} + '/" , /"client_secret/" : /"' + ${{secrets.cloudClientSecret}} + '/" }'
           echo $postData
           $token = curl.exe -H "Content-Type: application/json" -X POST --data $postData https://xray.cloud.getxray.app/api/v1/authenticate
           $authString = "Authorization: Bearer " + $token
